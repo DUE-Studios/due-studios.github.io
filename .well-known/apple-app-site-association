@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["5M87Z298PZ.com.duestudio.domura", "36J8TBMX5T.com.bayukurnia.homecheck-ios"],
+        "appIDs": ["5M87Z298PZ.com.duestudio.domura", "36J8TBMX5T.com.bayukurnia.homecheck-ios", "Z9S574BV42.com.duestudio.domura.dev"],
         "components": [{ "/": "/join/*", "comment": "Household invite: /join/?code=XXXXXXXX" }]
       }
     ]
