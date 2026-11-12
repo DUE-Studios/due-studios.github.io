@@ -1,0 +1,115 @@
+/* Domura's styles from Figma "DUE Studio - Sunrise" (Onboarding Flow, Tab - Serumah), the same tokens as the iOS app's
+   Components/Colors.swift and Typography.swift. */
+@font-face {
+  font-family: "Zalando Sans";
+  src: url(ZalandoSans-Variable.ttf) format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --page: #E7DFD3;
+  --card: #FBF9F6;
+  --red: #D84B33;
+  --title: #342B26;
+  --body: #707070;
+  --muted: #776D62;
+  --bubble: #241C17;
+  --pill: #E9BE69;
+  --pill-text: #534940;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--page);
+  color: var(--title);
+  font: 400 17px/22px "Zalando Sans", system-ui, sans-serif;
+  letter-spacing: -0.43px;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* The language not picked (site.js); without script both show. */
+[data-lang=id] body [lang=en], [data-lang=en] body [lang=id] { display: none; }
+
+body {
+  margin: 0 auto;
+  max-width: 600px;
+  min-height: 100vh;
+  padding: 8px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-x: hidden;
+}
+
+a { color: var(--red); }
+[hidden] { display: none !important; }
+main { display: flex; flex-direction: column; gap: 20px; }
+.hero { width: 100%; height: auto; }
+
+header { display: flex; justify-content: space-between; align-items: center; min-height: 44px; }
+header .home img { display: block; height: 17px; width: auto; }
+
+/* Figma language pill (Onboarding First Launch) */
+.pill {
+  margin-left: auto;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px 16px;
+  background: var(--pill);
+  color: var(--pill-text);
+  font: 500 15px/20px inherit;
+  font-family: inherit;
+  letter-spacing: -0.23px;
+  cursor: pointer;
+}
+
+h1 { margin: 0; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: 0.38px; }
+.lead { margin: -12px 0 0; }
+.updated { margin: -12px 0 0; font-size: 13px; line-height: 16px; letter-spacing: 0; color: var(--muted); }
+
+.stack { display: flex; flex-direction: column; gap: 10px; }
+
+.card { background: var(--card); border-radius: 30px; padding: 20px; }
+.card h2 { margin: 0 0 4px; font-size: 17px; line-height: 24px; font-weight: 600; letter-spacing: -0.26px; }
+.card p, .card li { margin: 0; font-size: 14px; line-height: 20px; letter-spacing: 0; color: var(--body); }
+.card p + p, .card p + ul, .card ul + p { margin-top: 8px; }
+.card ul { margin: 4px 0 0; padding-left: 20px; }
+.card li + li { margin-top: 4px; }
+.card strong { color: var(--title); font-weight: 600; }
+
+/* Long reading text (privacy policy): the guide's body style, Regular 16 / 21 */
+.doc .card p, .doc .card li { font-size: 16px; line-height: 21px; color: var(--title); }
+
+/* Onboarding 3/3 feature card: icon, then title and text */
+.feature { display: flex; gap: 10px; align-items: center; }
+.feature img { flex: none; width: 37px; height: 37px; }
+
+/* Figma "Bottom button", Big Enabled */
+.button {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 50px; border-radius: 30px;
+  background: var(--red); color: #fff;
+  font-weight: 500; text-decoration: none;
+}
+
+/* The invite code, in the guide's amount style (SemiBold 30 / 44) */
+.card .code { margin: 4px 0; font-size: 30px; line-height: 44px; font-weight: 600; letter-spacing: 4px; color: var(--title); }
+
+/* Domu peeking in from the right edge with his speech bubble (Onboarding 3/3) */
+.domu { display: flex; align-items: flex-end; justify-content: flex-end; margin-right: calc(50% - 50vw); }  /* to the window edge, as drawn */
+.domu img { flex: none; width: 114px; height: auto; }
+.bubble {
+  margin-bottom: 96px;
+  max-width: 261px;
+  background: var(--card);
+  border-radius: 20px 20px 0 20px;
+  padding: 10px 13px;
+  font-size: 13px; line-height: 19px; font-weight: 500; letter-spacing: 0;
+  color: var(--bubble);
+}
+
+footer { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; line-height: 16px; letter-spacing: 0; color: var(--muted); }
+footer a { color: var(--muted); }
+footer .copy { width: 100%; }

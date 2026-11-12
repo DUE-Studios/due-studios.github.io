@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5M87Z298PZ.com.duestudio.domura", "36J8TBMX5T.com.bayukurnia.homecheck-ios"],
+        "components": [{ "/": "/join/*", "comment": "Household invite: /join/?code=XXXXXXXX" }]
+      }
+    ]
+  }
+}

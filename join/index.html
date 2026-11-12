@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Serumah di Domura</title>
+<!-- The code in the URL is a credential: keep it out of search results and out of the Referer sent to the stores. -->
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#E7DFD3">
+<link rel="icon" href="/assets/icon-180.png">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js"></script>
+</head>
+<body>
+<header>
+  <a class="home" href="/"><img src="/assets/wordmark.svg" width="110" height="17" alt="Domura"></a>
+  <button class="pill" type="button"><span lang="id">English</span><span lang="en">Bahasa Indonesia</span></button>
+</header>
+
+<main id="invite" hidden>
+  <h1><span lang="id">Kamu diundang ke Serumah</span><span lang="en">You're invited to a household</span></h1>
+  <p class="lead">
+    <span lang="id">Rawat rumah bareng di Domura: peralatan, jadwal bersih-bersih, dan hematnya jadi milik bersama.</span>
+    <span lang="en">Look after your home together in Domura: the appliances, the cleaning schedule and the savings are shared.</span>
+  </p>
+  <div class="card">
+    <h2><span lang="id">Kode undangan</span><span lang="en">Invite code</span></h2>
+    <p class="code" id="code"></p>
+    <p><span lang="id">Berlaku 24 jam, untuk satu orang.</span><span lang="en">Valid for 24 hours, for one person.</span></p>
+  </div>
+  <a class="button" id="open" href="#"><span lang="id">Buka di Domura</span><span lang="en">Open in Domura</span></a>
+  <div class="card">
+    <h2><span lang="id">Belum punya Domura?</span><span lang="en">Don't have Domura yet?</span></h2>
+    <p>
+      <span lang="id">Pasang dari <a href="https://apps.apple.com/app/id6823553968">App Store</a>, masuk, lalu ketuk link undangan ini lagi. Bisa juga masukkan kodenya di tab Serumah.</span>
+      <span lang="en">Install it from the <a href="https://apps.apple.com/app/id6823553968">App Store</a>, sign in, then tap this invite link again. You can also enter the code in the Household tab.</span>
+    </p>
+  </div>
+  <div class="domu">
+    <p class="bubble"><span lang="id">Yuk, rawat rumah bareng!</span><span lang="en">Let's look after the home together!</span></p>
+    <img src="/assets/domu-peek.svg" width="114" height="204" alt="">
+  </div>
+</main>
+
+<main id="broken" hidden>
+  <h1><span lang="id">Link undangan tidak lengkap</span><span lang="en">This invite link is incomplete</span></h1>
+  <p class="lead">
+    <span lang="id">Minta link baru ke anggota rumahmu. Setiap link berlaku 24 jam.</span>
+    <span lang="en">Ask your household member for a new link. Each link is valid for 24 hours.</span>
+  </p>
+</main>
+
+<footer>
+  <a href="/privacy/"><span lang="id">Kebijakan Privasi</span><span lang="en">Privacy Policy</span></a>
+  <a href="/support/"><span lang="id">Bantuan</span><span lang="en">Support</span></a>
+  <span class="copy">© 2026 DUE Studio</span>
+</footer>
+
+<script>
+  // Codes come from create_household_invite (domura-api): 8 characters, A-Z without I and O, 2-9.
+  const code = (new URLSearchParams(location.search).get('code') || '').trim().toUpperCase();
+  const valid = /^[A-HJ-NP-Z2-9]{8}$/.test(code);
+  document.getElementById(valid ? 'invite' : 'broken').hidden = false;
+  if (valid) {
+    document.getElementById('code').textContent = code;
+    // For a visitor who has the app but landed here (opened in Safari): the app's own scheme.
+    document.getElementById('open').href = 'domura://join?code=' + code;
+  }
+</script>
+</body>
+</html>
